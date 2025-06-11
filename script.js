@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     //3.Función para ocultar un mensaje de error
 
-    function ocultarError(elementoError, inputElement){
+    function ocultarError(elementoError, inputElement){                                                                
         elementoError.style.display = 'none';
         inputElement.classList.remove('invalid');  
     }
@@ -45,6 +45,52 @@ document.addEventListener('DOMContentLoaded',()=>{
             mostrarError(errorNombre,nombreInput,'El nombre es requerido');
             formValido = false;
         }
+
+        //Validación para correo electrónico
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailInput.value.trim() === ''){
+            mostrarError(errorEmail,emailInput,'El correo es requerido');
+            formValido = false;
+        } 
+        else if (!emailPattern.test(emailInput.value.trim())){
+            mostrarError(errorEmail.emailInput,'Ingrese un correo válido');
+            formValido = false;
+        }
+
+        //Validación de la contraseña    
+        if (passwordInput.value.trim() === ''){
+            mostrarError(errorPassword,passwordInput, 'La contraseña es requerida');
+            formValido = false;
+        }
+        else if (passwordInput.value.trim().length < 6){
+            mostrarError(errorPassword,passwordInput, 'La contraseña debe ser mayor a 6 caracteres');
+            formValido = false;
+        }  
+        
+        //Validación de la confirmación de la contraseña
+
+         if (confirmPasswordInput.value.trim() === ''){
+            mostrarError(errorConfirmPassword,confirmPasswordInput, 'Debe de reingresar la contraseña');
+            formValido = false;
+         }
+         else if (confirmPasswordInput.value !== passwordInput.value){
+            mostrarError(errorConfirmPassword,confirmPasswordInput,'Las contraseñas deben ser iguales');
+            formValido = false;
+         }
+
+         // Si el formulario es válido, mostrar el mensaje de éxito y resetear el formulario
+
+         if (formValido){
+            successMessage.style.display = 'block';
+            registroForm.reset();//Limpia todos los campos del formulario
+            console.log('¡Formulario enviado correctamente!');
+         }
+
+
+
+
 
     })
 

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Formulario Registro</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
     <div class="container">
         <h2>Registro de Usuario</h2>
         <form id="registroForm">
             <div class="form-group">
                 <label for="nombre">Nombre: </label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+                <input type="text" id="nombre" name="nombre">
                 <p class="error-message" id="errorNombre">El nombre es requerido</p>
             </div>
             <div class="form-group">
@@ -26,14 +28,16 @@
                 <p class="error-message" id="errorPassword">La contraseña es requerida</p>
             </div>
             <div class="form-group">
-                <label for="confirmPassword">Reingresar contraseña: </label>
+                <label for="confirmPassword">Reingresar Contraseña: </label>
                 <input type="password" name="confirmPassword" id="confirmPassword">
-                <p class="error-message" id="errorConfirmPassword">Las contraseñas no son iguales</p>
+                <p class="error-message" id="errorConfirmPassword">La contraseña no son iguales</p>
             </div>
             <button type="submit">Registrarse</button>
-            <p class="success-message" id="successMesage">Registro Exitoso!!</p>
+            <p class="success-message" id="successMessage">Registro Exitoso !!!</p>
         </form>
     </div>
-    <script src="script.js"></script>
+
+    <script src="/script.js"></script>
 </body>
+
 </html>
